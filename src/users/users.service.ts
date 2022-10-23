@@ -30,7 +30,7 @@ export class UsersService {
     return this.prisma.user.findMany();
   }
 
-  async me(id: string) {
+  async findById(id: string) {
     const user = await this.prisma.user.findFirst({
       where: {
         id,

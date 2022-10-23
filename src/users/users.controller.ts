@@ -30,7 +30,7 @@ export class UsersController {
   @UseGuards(JwtAuthGuard)
   @Get('me')
   findOne(@Request() req) {
-    return this.usersService.me(req.user.id);
+    return this.usersService.findById(req.user.id);
   }
 
   @Put(':id')

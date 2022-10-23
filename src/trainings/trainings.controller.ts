@@ -20,12 +20,13 @@ export class TrainingsController {
   @UseGuards(JwtAuthGuard)
   @Post()
   create(@Body() body, @Request() req) {
-    const { name, weekdays } = body;
+    const { name, weekdays, exercises } = body;
 
     return this.trainingsService.create({
       name,
       weekdays,
       user_id: req.user.id,
+      exercises,
     });
   }
 

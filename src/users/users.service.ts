@@ -30,7 +30,7 @@ export class UsersService {
     return this.prisma.user.findMany();
   }
 
-  async findOne(id: string) {
+  async me(id: string) {
     const user = await this.prisma.user.findFirst({
       where: {
         id,
@@ -39,7 +39,17 @@ export class UsersService {
 
     if (!user) throw new HttpException('Usuário não encontrado.', 404);
 
-    return user;
+    const { password, ...result } = user;
+
+    return result;
+  }
+
+  async findByEmail(email: string) {
+    return this.prisma.user.findFirst({
+      where: {
+        email,
+      },
+    });
   }
 
   async update(id: string, updateUserDto: UpdateUserDto) {

@@ -20,4 +20,14 @@ export class TrainingsExercisesService {
       data: createTrainingsExerciseDto,
     });
   }
+
+  async deleteByTrainingId(training_id: string) {
+    await this.trainingsService.findById(training_id);
+
+    await this.prisma.trainingsExercises.deleteMany({
+      where: {
+        training_id,
+      },
+    });
+  }
 }

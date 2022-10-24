@@ -82,6 +82,8 @@ export class TrainingsService {
   async remove(id: string) {
     await this.findById(id);
 
+    await this.trainingsExercisesService.deleteByTrainingId(id);
+
     return this.prisma.trainings.delete({
       where: {
         id,

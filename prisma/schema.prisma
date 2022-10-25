@@ -19,7 +19,8 @@ model User {
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
 
-  trainings Trainings[]
+  trainings          Trainings[]
+  users_measurements UsersMeasurements[]
 
   @@map("users")
 }
@@ -50,4 +51,17 @@ model TrainingsExercises {
   training Trainings @relation(fields: [training_id], references: [id])
 
   @@map("trainings_exercises")
+}
+
+model UsersMeasurements {
+  id         String   @id @default(uuid())
+  weight     Int
+  height     Int
+  user_id    String
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+
+  user User @relation(fields: [user_id], references: [id])
+
+  @@map("users_measurements")
 }

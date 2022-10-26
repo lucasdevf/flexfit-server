@@ -9,7 +9,7 @@ import {
 import { UsersMeasurementsService } from './users-measurements.service';
 import { JwtAuthGuard } from '../auth/jwt-auth-guard';
 
-@Controller('users/measurements')
+@Controller('measurements')
 export class UsersMeasurementsController {
   constructor(
     private readonly usersMeasurementsService: UsersMeasurementsService,

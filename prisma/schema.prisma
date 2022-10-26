@@ -19,8 +19,9 @@ model User {
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
 
-  trainings          Trainings[]
-  users_measurements UsersMeasurements[]
+  trainings    Trainings[]
+  measurements Measurements[]
+  goals        Goals[]
 
   @@map("users")
 }
@@ -53,7 +54,7 @@ model TrainingsExercises {
   @@map("trainings_exercises")
 }
 
-model UsersMeasurements {
+model Measurements {
   id         String   @id @default(uuid())
   weight     Int
   height     Int
@@ -63,5 +64,20 @@ model UsersMeasurements {
 
   user User @relation(fields: [user_id], references: [id])
 
-  @@map("users_measurements")
+  @@map("measurements")
+}
+
+model Goals {
+  id              String    @id @default(uuid())
+  name            String
+  value           Int
+  deadline        DateTime
+  conclusion_date DateTime?
+  user_id         String
+  created_at      DateTime  @default(now())
+  updated_at      DateTime  @default(now())
+
+  user User @relation(fields: [user_id], references: [id])
+
+  @@map("goals")
 }

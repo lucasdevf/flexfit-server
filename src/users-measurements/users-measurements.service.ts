@@ -16,13 +16,13 @@ export class UsersMeasurementsService {
 
     await this.usersService.findById(user_id);
 
-    return this.prisma.usersMeasurements.create({
+    return this.prisma.measurements.create({
       data: createUsersMeasurementDto,
     });
   }
 
   async findLastRegisterByUserId(user_id: string) {
-    return this.prisma.usersMeasurements.findFirst({
+    return this.prisma.measurements.findFirst({
       where: {
         user_id,
       },

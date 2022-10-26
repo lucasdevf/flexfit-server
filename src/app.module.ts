@@ -4,6 +4,7 @@ import { AuthModule } from './auth/auth.module';
 import { TrainingsModule } from './trainings/trainings.module';
 import { TrainingsExercisesModule } from './trainings-exercises/trainings-exercises.module';
 import { UsersMeasurementsModule } from './users-measurements/users-measurements.module';
+import { GoalsModule } from './goals/goals.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { UsersMeasurementsModule } from './users-measurements/users-measurements
     TrainingsModule,
     TrainingsExercisesModule,
     UsersMeasurementsModule,
+    GoalsModule,
   ],
   controllers: [],
   providers: [],

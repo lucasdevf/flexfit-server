@@ -19,9 +19,10 @@ model User {
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
 
-  trainings    Trainings[]
-  measurements Measurements[]
-  goals        Goals[]
+  trainings     Trainings[]
+  measurements  Measurements[]
+  goals         Goals[]
+  imagesHistory ImageHistory[]
 
   @@map("users")
 }
@@ -80,4 +81,15 @@ model Goals {
   user User @relation(fields: [user_id], references: [id])
 
   @@map("goals")
+}
+
+model ImageHistory {
+  id         String   @id @default(uuid())
+  user_id    String
+  image_name String
+  created_at DateTime @default(now())
+
+  user User @relation(fields: [user_id], references: [id])
+
+  @@map("images_history")
 }

@@ -5,6 +5,7 @@ import { TrainingsModule } from './trainings/trainings.module';
 import { TrainingsExercisesModule } from './trainings-exercises/trainings-exercises.module';
 import { UsersMeasurementsModule } from './users-measurements/users-measurements.module';
 import { GoalsModule } from './goals/goals.module';
+import { ImagesHistoryModule } from './images-history/images-history.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { GoalsModule } from './goals/goals.module';
     TrainingsExercisesModule,
     UsersMeasurementsModule,
     GoalsModule,
+    ImagesHistoryModule,
   ],
   controllers: [],
   providers: [],
